@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "path": "/calendar.ics",
+      "responses": [
+        {
+          "status": 200,
+          "headers": [
+            [
+              "Content-Type",
+              "text/calendar"
+            ]
+          ],
+          "file": "calendar.ics"
+        }
+      ]
+    }
+  ]
+}

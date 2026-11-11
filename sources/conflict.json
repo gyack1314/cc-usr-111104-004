@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "path": "/calendar.ics",
+      "responses": [
+        {
+          "status": 200,
+          "headers": [],
+          "file": "conflict.ics"
+        }
+      ]
+    }
+  ]
+}

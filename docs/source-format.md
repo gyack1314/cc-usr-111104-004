@@ -1,0 +1,5 @@
+# 日历字段约定
+
+日期时间格式为YYYYMMDDTHHMMSS及可选Z，不接受DATE、浮动时间、自定义VTIMEZONE或闰秒。SEQUENCE缺省零，DTSTAMP必须为UTC。DURATION支持天、时、分、秒的非负整数ISO形式；DTEND与DURATION不能同时出现，活动必须有有限正时长。星期参数仅周规则可用，不带序数，周从星期一开始。UNTIL含边界，带TZID起点的UNTIL必须为UTC。COUNT和UNTIL不同时使用。缺失RRULE表示一次主活动，RDATE/EXDATE仍适用；RDATE和EXDATE的值类型/时区须与DTSTART一致。原序列候选先产生并计COUNT，跳时空档再剔除。重复区间的时长取主活动DTEND相对DTSTART的墙钟差或DURATION的精确时长，所有示例用DURATION。覆盖需完整DTSTART与结束描述，不继承旧时间字段。
+
+实例逻辑键由UID和原序列开始值组成。重复本地时间选较早UTC，空档跳过。同排序修订比较展开前的语义属性，忽略属性顺序与折行。主事件取消后整组不输出。非取消孤立RECURRENCE-ID若无对应主事件视为UID错误。失败按UID隔离，不影响无关活动。资料服务只发送ICS原始字节。
